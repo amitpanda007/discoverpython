@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+
+html {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: #b5aeac;
+  background-repeat: no-repeat;
+  background: -webkit-linear-gradient(to left top, #d6c6be, #b2aeab);
+  background: -moz-linear-gradient(to left top, #d6c6be, #b2aeab);
+  background: -ms-linear-gradient(to left top, #d6c6be, #b2aeab);
+  background: -o-linear-gradient(to left top, #d6c6be, #b2aeab);
+  background: linear-gradient(to left top, #d6c6be, #b2aeab);
+}
+
+body {
+  margin: 3rem;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@media screen and (max-width: 575px) {
+  body {
+    margin: 1rem;
+  }
+}
+
+.mat-drawer-container {
+  background: #dbd5d2;
+}
+
+.mat-expansion-panel {
+  background: #dbd5d2;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 56px;
+  border-radius: 8px;
+  border: 4px solid transparent;
+  background-clip: content-box;
+  background-color: #6060603b;
+}

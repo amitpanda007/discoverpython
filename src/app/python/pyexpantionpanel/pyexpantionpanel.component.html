@@ -1,0 +1,59 @@
+<!-- First Expansion Panel -->
+<!-- <mat-expansion-panel
+    [expanded]="step === 0"
+    (opened)="setStep(0)"
+    hideToggle
+    [ngClass]="{ complete: step > 0 }"
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title> Introduction </mat-panel-title>
+      <mat-panel-description> </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <p>
+      Python is a general purpose programming language. Its not intended for
+      use in any particular domain or environment. Pyhton is a strongly
+      typed language. Every object in the language generally has a type, at
+      the same time python is dynamically typed (meaning there is no type
+      checking of code prior to running it).
+    </p>
+
+    <mat-action-row>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel> -->
+
+<mat-expansion-panel
+  [expanded]="currentStep === ownStep"
+  hideToggle
+  [ngClass]="{ complete: currentStep > ownStep }"
+  class="panel-section"
+>
+  <mat-expansion-panel-header (click)="panelSelected()">
+    <mat-panel-title
+      [ngClass]="{ complete_color: currentStep > ownStep }"
+      class="title"
+    >
+      {{ title }}
+    </mat-panel-title>
+    <mat-panel-description> </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <!-- <div [innerHTML]="description"></div> -->
+
+  <ng-content select="[description]"></ng-content>
+
+  <mat-action-row>
+    <button
+      mat-stroked-button
+      class="previous"
+      (click)="prevStep()"
+      *ngIf="showPrevious"
+    >
+      {{ prevBtnText }}
+    </button>
+    <button mat-stroked-button class="next" (click)="nextStep()">
+      {{ nextBtnText }}
+    </button>
+  </mat-action-row>
+</mat-expansion-panel>

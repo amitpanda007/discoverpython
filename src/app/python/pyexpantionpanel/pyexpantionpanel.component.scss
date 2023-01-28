@@ -1,0 +1,29 @@
+.complete {
+  background-color: #ccc;
+  color: #999999;
+}
+
+.complete_color {
+  color: #999999;
+}
+
+.previous {
+  color: #939393;
+}
+
+.next {
+  color: #b89090;
+}
+
+.title {
+  font-size: larger;
+}
+
+.panel-section {
+  border: 1px solid #b6afad;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  overflow-y: scroll;
+  max-height: 300px;
+}

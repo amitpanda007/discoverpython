@@ -1,0 +1,225 @@
+<!-- Templete Expansion Panel -->
+<!-- <pyexpantionpanel
+  [ownStep]="0"
+  [currentStep]="step"
+  [title]="''"
+  (panleClicked)="setStep($event)"
+  (goToNext)="nextStep($event)"
+  [showPrevious]="true"
+  (goBack)="prevStep()"
+  [nextBtnText]="'End'"
+>
+  <div description>
+    <p></p>
+  </div>
+</pyexpantionpanel> -->
+
+<div class="outer-section">
+  <div class="accordion">
+    <div class="header-section">
+      <span class="info-header">Python Basics</span>
+      <button
+        mat-icon-button
+        (click)="resetLearning()"
+        matTooltip="Restart learning progress"
+      >
+        <mat-icon>refresh</mat-icon>
+      </button>
+    </div>
+    <mat-progress-bar
+      mode="determinate"
+      [value]="percentComplete"
+    ></mat-progress-bar>
+    <mat-accordion>
+      <pyexpantionpanel
+        [ownStep]="0"
+        [currentStep]="step"
+        [title]="'Introduction'"
+        (panleClicked)="setStep($event)"
+        (goToNext)="nextStep($event)"
+      >
+        <div description>
+          <p>
+            Python is a general purpose programming language. Its not intended
+            for use in any particular domain or environment. Pyhton is a
+            strongly typed language. Every object in the language generally has
+            a type, at the same time python is dynamically typed (meaning there
+            is no type checking of code prior to running it).
+          </p>
+        </div>
+      </pyexpantionpanel>
+
+      <!-- Second Expansion Panel -->
+      <pyexpantionpanel
+        [ownStep]="1"
+        [currentStep]="step"
+        [title]="'Scalar Types'"
+        (panleClicked)="setStep($event)"
+        (goToNext)="nextStep($event)"
+        [showPrevious]="true"
+        (goBack)="prevStep()"
+      >
+        <div description>
+          <p>
+            Python comes with a number of built-in datatypes. These include
+            primitive scalar types like integers as well as collection types
+            like dictionaries. These built-in types are powerful enough to be
+            used alone for many programming needs, and they can be used as
+            building blocks for creating more complex data types.
+          </p>
+          <p>The basicbuilt-in scalar types we'll look at are:</p>
+
+          <p>int</p>
+          <pre>
+            <code data-language="python">10</code>
+          </pre>
+          <pre>
+            <code data-language="python">int(3.5)
+3
+int(-3.5)
+-3
+int("496")
+496
+            </code>
+          </pre>
+          <p>float</p>
+          <pre>
+            <code data-language="python">3.125</code>
+          </pre>
+          <pre>
+            <code data-language="python">float(7)
+7.0
+
+float("1.618")
+1.618
+
+3.0 + 1
+4.0
+</code>
+          </pre>
+          <p>None</p>
+          <pre>
+            <code data-language="python">None</code>
+          </pre>
+          <pre>
+            <code data-language="python">a = None
+
+a is None
+True</code>
+          </pre>
+          <p>bool</p>
+          <pre>
+            <code data-language="python">True
+False
+
+bool(0)
+False
+
+bool(42)
+True
+
+bool(-1)
+True
+
+bool("")
+False
+
+bool("Spam")
+True
+
+bool("False")
+True</code>
+          </pre>
+        </div>
+      </pyexpantionpanel>
+
+      <!-- Third Expansion Panel -->
+      <pyexpantionpanel
+        [ownStep]="2"
+        [currentStep]="step"
+        [title]="'Relational Operators'"
+        (panleClicked)="setStep($event)"
+        (goToNext)="nextStep($event)"
+        [showPrevious]="true"
+        (goBack)="prevStep()"
+        [nextBtnText]="'Next'"
+      >
+        <div description>
+          <p>
+            There are six relational operators in python.Relational operators
+            are used for comparing the values. It either returns True or False
+            according to the condition. These operators are also known as
+            Comparison Operators.
+          </p>
+
+          <p>value equality / equivalence (==)</p>
+          <pre>
+              <code data-language="python">g = 20
+g == 20
+True
+g == 13
+False</code></pre>
+          <p>value inequality / inequivalence (!=)</p>
+          <pre>
+              <code data-language="python">g != 20
+False</code></pre>
+          <p>less-than (<)</p>
+          <pre>
+              <code data-language="python">g < 30
+True</code></pre>
+          <p>greater-than (>)</p>
+          <pre>
+              <code data-language="python">g > 30
+False</code></pre>
+          <p>less-than or equal to (<=)</p>
+          <pre>
+              <code data-language="python">g <= 20
+True</code></pre>
+          <p>greater-than or equal to (>=)</p>
+          <pre>
+              <code data-language="python">g >= 20
+True</code>
+          </pre>
+        </div>
+      </pyexpantionpanel>
+
+      <!-- Fourth Expansion Panel -->
+      <pyexpantionpanel
+        [ownStep]="3"
+        [currentStep]="step"
+        [title]="'Conditional Statements'"
+        (panleClicked)="setStep($event)"
+        (goToNext)="nextStep($event)"
+        [showPrevious]="true"
+        (goBack)="prevStep()"
+        [nextBtnText]="'Next'"
+      >
+        <div description>
+          <p></p>
+        </div>
+      </pyexpantionpanel>
+
+      <!-- Fifth Expansion Panel -->
+      <pyexpantionpanel
+        [ownStep]="4"
+        [currentStep]="step"
+        [title]="'While Loops'"
+        (panleClicked)="setStep($event)"
+        (goToNext)="nextStep($event)"
+        [showPrevious]="true"
+        (goBack)="prevStep()"
+        [nextBtnText]="'End'"
+      >
+        <div description>
+          <p></p>
+        </div>
+      </pyexpantionpanel>
+    </mat-accordion>
+  </div>
+  <div class="info" *ngIf="courseComplete">
+    <span class="info-header-sm navy-blue"
+      >You have completed {{ courseTitle }} course</span
+    >
+  </div>
+  <fireworks *ngIf="courseComplete" [fireworkColor]="'#db1f48'"></fireworks>
+</div>
