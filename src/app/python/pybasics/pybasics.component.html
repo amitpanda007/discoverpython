@@ -214,6 +214,38 @@ True</code>
           <p></p>
         </div>
       </pyexpantionpanel>
+
+      <!-- Sixth Expansion Panel -->
+      <pyexpantionpanel
+        [ownStep]="4"
+        [currentStep]="step"
+        [title]="'While Loops'"
+        (panleClicked)="setStep($event)"
+        (goToNext)="nextStep($event)"
+        [showPrevious]="true"
+        (goBack)="prevStep()"
+        [nextBtnText]="'End'"
+      >
+        <div description>
+          <p></p>
+        </div>
+      </pyexpantionpanel>
+
+      <!-- Seventh Expansion Panel -->
+      <pyexpantionpanel
+        [ownStep]="4"
+        [currentStep]="step"
+        [title]="'While Loops'"
+        (panleClicked)="setStep($event)"
+        (goToNext)="nextStep($event)"
+        [showPrevious]="true"
+        (goBack)="prevStep()"
+        [nextBtnText]="'End'"
+      >
+        <div description>
+          <p></p>
+        </div>
+      </pyexpantionpanel>
     </mat-accordion>
   </div>
   <div class="info" *ngIf="courseComplete">
