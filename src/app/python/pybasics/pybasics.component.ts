@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { BehaviorSubject, Subject, switchMap, map } from 'rxjs';
+import { RedditService } from 'src/app/common/services/reddit.service';
 
 @Component({
   selector: 'pybasics',
@@ -13,12 +15,22 @@ export class PyBasicsComponent implements OnInit {
   totalSteps: number = 5;
   percentComplete: number = 0;
 
-  constructor() {}
+  myGroup = new FormGroup({
+    search: new FormControl(),
+  });
+
+  constructor(private redditService: RedditService) {}
 
   ngOnInit(): void {
     this.step = parseInt(sessionStorage.getItem('step') || '0');
     this.calculatePercentageComplete();
     this.checkCourseComplete();
+
+    this.redditService
+      .getGifs(this.myGroup.get('search'))
+      .subscribe((values: any) => {
+        console.log(values);
+      });
   }
 
   setStep(index: number) {
